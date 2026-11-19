@@ -25,8 +25,8 @@ body{font-family:'Inter',sans-serif;background:#FFF4DC;color:#1E1E1E;overflow-x:
 .stripes{display:none}
 /* HERO */
 .hero{position:relative;overflow:hidden;contain:paint;padding:20px 0 30px;text-align:center;background:#FFF4DC}
-.hero-wall{position:absolute;inset:-18%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;transform:rotate(-8deg);opacity:1;pointer-events:none;z-index:0}
-.hero-wall img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:8px;display:block}
+.hero-wall{position:absolute;top:-10%;left:-10%;width:120%;height:120%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:10px;transform:rotate(-8deg);opacity:1;pointer-events:none;z-index:0}
+.hero-wall img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;border-radius:8px;display:block}
 .hero:after{content:"";position:absolute;inset:0;background:rgba(255,244,220,.75);pointer-events:none;z-index:1}
 .hero .wrap{position:relative;z-index:2}
 .logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
@@ -51,11 +51,10 @@ h1{font-family:'Fredoka',sans-serif;font-weight:700;font-size:25px;line-height:1
 #acervo{overflow:hidden}
 #acervo .wrap{overflow: visible}
 .fita{background:transparent;padding:4px 0 6px;overflow:hidden;border:0;width:100vw;margin-left:calc(50% - 50vw)}
-.fita.fita-desktop{display:none}
-.fita img{width:105px;height:150px;object-fit:cover;border-radius:10px;border:2px solid #1E1E1E;box-shadow:none;margin-right:14px;flex-shrink:0;display:block}
-@media(min-width:768px){
-  .fita.fita-desktop{display:block}
-  .fita img{width:140px;height:200px;margin-right:16px}
+.fita.fita-desktop{display:block}
+.fita img{width:98px;height:140px;object-fit:cover;border-radius:10px;border:2px solid #1E1E1E;box-shadow:none;margin-right:12px;flex-shrink:0;display:block}
+@media(max-width:600px){
+  .fita.fita-desktop{display:none}
 }
 .fita .track.reverso{animation-direction:reverse}
 #acervo.pausado .fita .track{animation-play-state:paused !important}
@@ -200,7 +199,7 @@ footer{background:#FFD23F;text-align:center;padding:26px 18px;font-size:13px;col
 .bon-car{width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;padding:6px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .bon-track img{height:180px;width:auto;border-radius:10px;border:2px solid #1E1E1E;box-shadow:4px 4px 0 #1E1E1E;flex-shrink:0;margin-right:12px}
 @keyframes rolaInfinito{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
-.fita .track,.bon-track{display:flex;width:max-content;animation:rolaInfinito linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translate3d(0,0,0)}
+.fita .track,.bon-track{display:flex;width:max-content;animation:rolaInfinito linear infinite;transform:translate3d(0,0,0)}
 .bon-track.reverso{animation-direction:reverse}
 .fita:hover .track,.fita:active .track,.bon-car:hover .bon-track,.bon-car:active .bon-track{animation-play-state:paused}
 #planos .card .valor{font-family:'Fredoka',sans-serif;font-weight:700;white-space:nowrap;display:flex;justify-content:center;align-items:flex-start;gap:4px;line-height:1;margin:8px 0 4px}
@@ -244,9 +243,9 @@ body{padding-top:58px}
 
 <header class="hero">
   <div class="hero-wall" aria-hidden="true">
-    <img src="m1.webp" alt=""><img src="h1.webp" alt=""><img src="g1.webp" alt=""><img src="m2.webp" alt=""><img src="h2.webp" alt=""><img src="g2.webp" alt=""><img src="m3.webp" alt=""><img src="h3.webp" alt="">
-    <img src="g3.webp" alt=""><img src="m4.webp" alt=""><img src="h4.webp" alt=""><img src="g4.webp" alt=""><img src="m5.webp" alt=""><img src="h5.webp" alt=""><img src="g5.webp" alt=""><img src="m6.webp" alt="">
-    <img src="h6.webp" alt=""><img src="g6.webp" alt=""><img src="g7.webp" alt=""><img src="m1.webp" alt=""><img src="h3.webp" alt=""><img src="g1.webp" alt=""><img src="m5.webp" alt=""><img src="h6.webp" alt="">
+    <img src="m1.webp" alt=""><img src="h1.webp" alt=""><img src="g1.webp" alt=""><img src="m2.webp" alt="">
+    <img src="h2.webp" alt=""><img src="g2.webp" alt=""><img src="m3.webp" alt=""><img src="h3.webp" alt="">
+    <img src="g3.webp" alt=""><img src="m4.webp" alt=""><img src="h4.webp" alt=""><img src="g4.webp" alt="">
   </div>
   <div class="wrap">
     <h1>OS GIBIS QUE VOCÊ COMPRAVA NA BANCA, AGORA SÃO SEUS</h1>
@@ -266,66 +265,46 @@ body{padding-top:58px}
     <h2>RECONHECEU ALGUM?</h2>
     <p class="h2sub">Uma amostra do que tem na Banca Retrô:</p>
     <div class="contador">
-      <div><b>+<span class="roll" data-n="100000">0</span></b><small>gibis e revistas</small></div>
-      <div><b><span class="roll" data-n="5">0</span></b><small>categorias</small></div>
-      <div><b><span class="roll" data-n="100">0</span>%</b><small>digitalizados</small></div>
+      <div><b>+100.000</b><small>gibis e revistas</small></div>
+      <div><b>5</b><small>categorias</small></div>
+      <div><b>100%</b><small>digitalizados</small></div>
     </div>
     <div class="fita-grupo">
       <div class="fita"><div class="track">
-        <img src="img/capas/tio-patinhas-02.webp" alt="Tio Patinhas" loading="eager" decoding="async">
-        <img src="m1.webp" alt="Mônica" loading="eager" decoding="async">
-        <img src="h3.webp" alt="Homem-Aranha" loading="eager" decoding="async">
-        <img src="g6.webp" alt="Dragon Ball" loading="eager" decoding="async">
-        <img src="img/capas/ze-carioca-02.webp" alt="Zé Carioca" loading="eager" decoding="async">
-        <img src="img/capas/cebolinha-01.webp" alt="Cebolinha" loading="eager" decoding="async">
-        <img src="h6.webp" alt="Batman" loading="eager" decoding="async">
-        <img src="img/capas/cavaleiros-do-zodiaco-01.webp" alt="Cavaleiros do Zodíaco" loading="eager" decoding="async">
-        <img src="img/capas/pato-donald-01.webp" alt="Pato Donald" loading="eager" decoding="async">
-        <img src="m5.webp" alt="Magali" loading="eager" decoding="async">
-        <img src="img/capas/superman-01.webp" alt="Superman" loading="eager" decoding="async">
-        <img src="g1.webp" alt="Naruto" loading="eager" decoding="async">
-        <img src="img/capas/almanaque-disney-01.webp" alt="Almanaque Disney" loading="eager" decoding="async">
-        <img src="m6.webp" alt="Chico Bento" loading="eager" decoding="async">
-        <img src="h1.webp" alt="Capitão América" loading="eager" decoding="async">
-        <img src="img/capas/one-piece-01.webp" alt="One Piece" loading="eager" decoding="async">
-        <img src="img/capas/mad-01.webp" alt="MAD" loading="eager" decoding="async">
-        <img src="img/capas/turma-da-monica-01.webp" alt="Turma da Mônica" loading="eager" decoding="async">
-        <img src="g2.webp" alt="Hunter x Hunter" loading="eager" decoding="async">
+        <img src="img/capas/tio-patinhas-02.webp" alt="Tio Patinhas" width="98" height="140" loading="eager" decoding="async">
+        <img src="m1.webp" alt="Mônica" width="98" height="140" loading="eager" decoding="async">
+        <img src="h3.webp" alt="Homem-Aranha" width="98" height="140" loading="eager" decoding="async">
+        <img src="g6.webp" alt="Dragon Ball" width="98" height="140" loading="eager" decoding="async">
+        <img src="img/capas/ze-carioca-02.webp" alt="Zé Carioca" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/cebolinha-01.webp" alt="Cebolinha" width="98" height="140" loading="lazy" decoding="async">
+        <img src="h6.webp" alt="Batman" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/cavaleiros-do-zodiaco-01.webp" alt="Cavaleiros do Zodíaco" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/pato-donald-01.webp" alt="Pato Donald" width="98" height="140" loading="lazy" decoding="async">
+        <img src="m5.webp" alt="Magali" width="98" height="140" loading="lazy" decoding="async">
       </div></div>
       <div class="fita"><div class="track reverso">
-        <img src="img/capas/monica-02.webp" alt="Mônica" loading="eager" decoding="async">
-        <img src="img/capas/batman-02.webp" alt="Batman" loading="eager" decoding="async">
-        <img src="g4.webp" alt="Dragon Ball Z" loading="eager" decoding="async">
-        <img src="m2.webp" alt="Mônica e Cebolinha" loading="eager" decoding="async">
-        <img src="img/capas/homem-aranha-02.webp" alt="Homem-Aranha" loading="eager" decoding="async">
-        <img src="img/capas/naruto-02.webp" alt="Naruto" loading="eager" decoding="async">
-        <img src="img/capas/pateta-01.webp" alt="Pateta" loading="eager" decoding="async">
-        <img src="img/capas/magali-02.webp" alt="Magali" loading="eager" decoding="async">
-        <img src="h2.webp" alt="Marvel Heróis" loading="eager" decoding="async">
-        <img src="g7.webp" alt="Yu Yu Hakusho" loading="eager" decoding="async">
-        <img src="img/capas/minnie-01.webp" alt="Minnie" loading="eager" decoding="async">
-        <img src="img/capas/chico-bento-02.webp" alt="Chico Bento" loading="eager" decoding="async">
-        <img src="h4.webp" alt="Homem de Ferro" loading="eager" decoding="async">
-        <img src="g3.webp" alt="Yu-Gi-Oh!" loading="eager" decoding="async">
-        <img src="img/capas/placar-01.webp" alt="Placar" loading="eager" decoding="async">
-        <img src="img/capas/almanaque-da-monica-01.webp" alt="Almanaque da Mônica" loading="eager" decoding="async">
-        <img src="img/capas/akira-01.webp" alt="Akira" loading="eager" decoding="async">
+        <img src="img/capas/monica-02.webp" alt="Mônica" width="98" height="140" loading="eager" decoding="async">
+        <img src="img/capas/batman-02.webp" alt="Batman" width="98" height="140" loading="eager" decoding="async">
+        <img src="g4.webp" alt="Dragon Ball Z" width="98" height="140" loading="eager" decoding="async">
+        <img src="m2.webp" alt="Mônica e Cebolinha" width="98" height="140" loading="eager" decoding="async">
+        <img src="img/capas/homem-aranha-02.webp" alt="Homem-Aranha" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/naruto-02.webp" alt="Naruto" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/pateta-01.webp" alt="Pateta" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/magali-02.webp" alt="Magali" width="98" height="140" loading="lazy" decoding="async">
+        <img src="h2.webp" alt="Marvel Heróis" width="98" height="140" loading="lazy" decoding="async">
+        <img src="g7.webp" alt="Yu Yu Hakusho" width="98" height="140" loading="lazy" decoding="async">
       </div></div>
       <div class="fita fita-desktop"><div class="track">
-        <img src="img/capas/monica-03.webp" alt="Mônica" loading="eager" decoding="async">
-        <img src="img/capas/mickey-01.webp" alt="Mickey" loading="eager" decoding="async">
-        <img src="h5.webp" alt="Batman e Robin" loading="eager" decoding="async">
-        <img src="g5.webp" alt="Dragon Ball Z" loading="eager" decoding="async">
-        <img src="m3.webp" alt="Turma da Mônica" loading="eager" decoding="async">
-        <img src="img/capas/yu-yu-hakusho-01.webp" alt="Yu Yu Hakusho" loading="eager" decoding="async">
-        <img src="img/capas/magali-03.webp" alt="Magali" loading="eager" decoding="async">
-        <img src="m4.webp" alt="Super Almanaque Turma da Mônica" loading="eager" decoding="async">
-        <img src="img/capas/magali-04.webp" alt="Magali" loading="eager" decoding="async">
-        <img src="img/capas/almanaque-do-bidu-01.webp" alt="Almanaque do Bidu" loading="eager" decoding="async">
-        <img src="img/capas/turma-da-monica-02.webp" alt="Turma da Mônica" loading="eager" decoding="async">
-        <img src="img/capas/penadinho-01.webp" alt="Turma do Penadinho" loading="eager" decoding="async">
-        <img src="img/capas/super-almanaque-monica-01.webp" alt="Super Almanaque Mônica" loading="eager" decoding="async">
-        <img src="img/capas/turma-da-monica-natal-01.webp" alt="Turma da Mônica Natal" loading="eager" decoding="async">
+        <img src="img/capas/monica-03.webp" alt="Mônica" width="98" height="140" loading="eager" decoding="async">
+        <img src="img/capas/mickey-01.webp" alt="Mickey" width="98" height="140" loading="eager" decoding="async">
+        <img src="h5.webp" alt="Batman e Robin" width="98" height="140" loading="eager" decoding="async">
+        <img src="g5.webp" alt="Dragon Ball Z" width="98" height="140" loading="eager" decoding="async">
+        <img src="m3.webp" alt="Turma da Mônica" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/yu-yu-hakusho-01.webp" alt="Yu Yu Hakusho" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/magali-03.webp" alt="Magali" width="98" height="140" loading="lazy" decoding="async">
+        <img src="m4.webp" alt="Super Almanaque Turma da Mônica" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/almanaque-do-bidu-01.webp" alt="Almanaque do Bidu" width="98" height="140" loading="lazy" decoding="async">
+        <img src="img/capas/turma-da-monica-02.webp" alt="Turma da Mônica" width="98" height="140" loading="lazy" decoding="async">
       </div></div>
     </div>
   </div>
@@ -600,60 +579,24 @@ document.querySelectorAll('a[href="#planos"]').forEach(a=>a.addEventListener('cl
   window.addEventListener('load',anexarParametrosCheckout);
 })();
 </script>
-<style>
-.roll{display:inline-block;font-variant-numeric:tabular-nums}
-.roll.fim{animation:rollFim .35s ease}
-@keyframes rollFim{0%,100%{transform:scale(1)}50%{transform:scale(1.25);color:#D7262E}}
-</style>
 <script>
 (function(){
-  const fmt=n=>n.toLocaleString('pt-BR');
-  const duration=2500;
-  const easeOutCubic=t=>1-Math.pow(1-t,3);
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(!entry.isIntersecting)return;
-      const el=entry.target;
-      obs.unobserve(el);
-      const max=parseInt(el.dataset.n,10)||0;
-      const start=performance.now();
-      function step(now){
-        const elapsed=now-start;
-        const progress=Math.min(elapsed/duration,1);
-        const eased=easeOutCubic(progress);
-        const current=Math.round(eased*max);
-        el.textContent=fmt(current);
-        if(progress<1){
-          requestAnimationFrame(step);
-        }else{
-          el.textContent=fmt(max);
-        }
-      }
-      requestAnimationFrame(step);
-    });
-  },{threshold:0.6});
-  document.querySelectorAll('.roll').forEach(el=>obs.observe(el));
-})();
-</script>
-<script>
-(function(){
-  var isMobile = window.innerWidth < 768;
   document.querySelectorAll('.fita .track').forEach(function(t){
     var imgs = Array.from(t.querySelectorAll('img'));
-    if (isMobile && imgs.length > 10) {
+    if (imgs.length > 10) {
       imgs.slice(10).forEach(function(img){ img.remove(); });
       imgs = imgs.slice(0, 10);
     }
     imgs.forEach(function(img, idx){
-      img.setAttribute('width', isMobile ? '105' : '140');
-      img.setAttribute('height', isMobile ? '150' : '200');
+      img.setAttribute('width', '98');
+      img.setAttribute('height', '140');
       img.setAttribute('decoding', 'async');
       img.setAttribute('loading', idx < 4 ? 'eager' : 'lazy');
     });
     var base = t.innerHTML;
     t.innerHTML = base + base;
     var count = imgs.length;
-    var itemW = isMobile ? (105 + 14) : (140 + 16);
+    var itemW = 98 + 12;
     var halfW = count * itemW;
     t.style.animationDuration = Math.round(halfW / 32) + 's';
   });
