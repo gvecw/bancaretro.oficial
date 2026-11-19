@@ -24,8 +24,8 @@ body{font-family:'Inter',sans-serif;background:#FFF4DC;color:#1E1E1E;overflow-x:
 @keyframes pisca{50%{opacity:0}}
 .stripes{display:none}
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:20px 0 30px;text-align:center;background:#FFF4DC}
-.hero-wall{position:absolute;inset:-18%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;transform:rotate(-8deg);opacity:1;filter:saturate(1.1);pointer-events:none;z-index:0}
+.hero{position:relative;overflow:hidden;contain:paint;padding:20px 0 30px;text-align:center;background:#FFF4DC}
+.hero-wall{position:absolute;inset:-18%;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;transform:rotate(-8deg);opacity:1;pointer-events:none;z-index:0}
 .hero-wall img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:8px;display:block}
 .hero:after{content:"";position:absolute;inset:0;background:rgba(255,244,220,.75);pointer-events:none;z-index:1}
 .hero .wrap{position:relative;z-index:2}
@@ -88,9 +88,10 @@ h2{font-family:'Fredoka',sans-serif;font-weight:700;font-size:25px;line-height:1
 #acervo{background:#FFD23F}
 .secao-lista{background:#FFF4DC !important;padding:70px 0}
 .secao-lista .wrap{max-width:656px}
-#planos{background:#FFD23F}
-#garantia{background:#FFF4DC}
-#duvidas{background:#FFD23F}
+#depoimentos{background:#FFD23F}
+#planos{background:#FFF4DC}
+#garantia{background:#FFD23F}
+#duvidas{background:#FFF4DC}
 .acervo-box{position:relative;background:#fff;border:3px solid #1E1E1E;border-radius:18px;box-shadow:6px 6px 0 #1E1E1E;padding:20px;max-width:620px;width:100%;margin:16px auto 0;text-align:left;overflow:hidden;max-height:480px;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
 .acervo-box.aberta{max-height:6500px;padding-bottom:20px}
 .acervo-fade{position:absolute;left:0;right:0;bottom:0;height:95px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.92) 65%,#fff 100%);pointer-events:none;transition:opacity .3s ease}
@@ -133,10 +134,8 @@ summary{font-weight:700;cursor:pointer;list-style:none;color:#1E1E1E}
 summary:after{content:"+";float:right;color:#D7262E;font-family:'Inter',sans-serif;font-weight:700}
 details[open] summary:after{content:"–"}
 details p{margin-top:10px;line-height:1.6;color:#1E1E1E;font-size:16px}
-.feedbacks{background:#FFF4DC}
-.prints{display:block}
-.prints img{width:100%;max-width:340px;display:block;margin:0 auto 14px;border-radius:14px;background:#fff;border:3px solid #1E1E1E;box-shadow:6px 6px 0 #1E1E1E}
-.print-vazio{border:2px dashed #1E1E1E;border-radius:12px;padding:30px;text-align:center;font-family:'Inter',sans-serif;font-size:16px;color:#1E1E1E;opacity:.7}
+.prints{display:flex;flex-direction:column;gap:16px;max-width:420px;width:100%;margin:16px auto 0}
+.prints img{width:100%;height:auto;object-fit:contain;display:block;border-radius:14px;background:#18191A;border:3px solid #1E1E1E;box-shadow:5px 5px 0 #1E1E1E}
 footer{background:#FFD23F;text-align:center;padding:26px 18px;font-size:13px;color:#1E1E1E}
 /* UPSELL */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
@@ -208,7 +207,7 @@ footer{background:#FFD23F;text-align:center;padding:26px 18px;font-size:13px;col
 #planos .valor .moeda{font-size:20px;margin-top:8px}
 #planos .valor .inteiro{font-size:56px;letter-spacing:-1px}
 #planos .valor .cent{font-size:24px;margin-top:6px}
-.topo{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;background:rgba(255,244,220,.95);backdrop-filter:blur(8px);border-bottom:3px solid #1E1E1E;transition:transform .3s ease}
+.topo{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;background:rgba(255,244,220,.96);border-bottom:3px solid #1E1E1E;transition:transform .3s ease;will-change:transform}
 .topo.escondida{transform:translateY(-100%)}
 body{padding-top:58px}
 .topo-menu{width:42px;height:42px;background:none;border:0;display:flex;flex-direction:column;justify-content:center;gap:6px;cursor:pointer}
@@ -374,6 +373,18 @@ body{padding-top:58px}
   </div>
 </section>
 
+<section id="depoimentos">
+  <div class="wrap">
+    <span class="etiqueta">DEPOIMENTOS</span>
+    <h2>QUEM JÁ ESTÁ LENDO</h2>
+    <div class="prints">
+      <img src="img/depoimentos/depoimento-01.webp" alt="Depoimento de cliente 1" loading="lazy" decoding="async">
+      <img src="img/depoimentos/depoimento-02.webp" alt="Depoimento de cliente 2" loading="lazy" decoding="async">
+      <img src="img/depoimentos/depoimento-03.webp" alt="Depoimento de cliente 3" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
 <section class="planos" id="planos">
 <div class="wrap">
   <span class="etiqueta">ESCOLHA SEU PLANO</span>
@@ -525,14 +536,22 @@ function irParaPlanos(){fecharLogin();document.getElementById('planos').scrollIn
 function abrirUpsell(e){e.preventDefault();document.getElementById('upsell').style.display='flex'}
 function fecharUpsell(){document.getElementById('upsell').style.display='none'}
 let verTodos=false;
-function ajustarFonteLista(){
+let larguraJanelaAnterior=window.innerWidth;
+let timerResizeLista=null;
+function ajustarFonteLista(larguraMudou){
   const box=document.getElementById('acervoBox');
   if(!box)return;
   const isMobile=window.innerWidth<=600;
-  const maxW=box.clientWidth-40;
+  const maxW=box.clientWidth-48;
   box.querySelectorAll('.lista-grid span').forEach(s=>{
-    s.style.fontSize='';
-    if(isMobile&&maxW>0&&s.offsetParent!==null){
+    if(larguraMudou){
+      s.style.fontSize='';
+    }
+    if(!isMobile){
+      if(s.style.fontSize)s.style.fontSize='';
+      return;
+    }
+    if(maxW>0&&s.offsetParent!==null&&!s.style.fontSize){
       let fs=15;
       while(s.scrollWidth>maxW&&fs>10){
         fs-=0.5;
@@ -547,10 +566,19 @@ function toggleVerTodos(){
   const btn=document.getElementById('btnVerTodos');
   if(box)box.classList.toggle('aberta',verTodos);
   if(btn)btn.textContent=verTodos?'MOSTRAR MENOS':'VER TODOS OS TÍTULOS';
-  ajustarFonteLista();
+  ajustarFonteLista(false);
 }
-window.addEventListener('resize',ajustarFonteLista);
-ajustarFonteLista();
+window.addEventListener('resize',function(){
+  const novaLargura=window.innerWidth;
+  if(novaLargura===larguraJanelaAnterior)return;
+  clearTimeout(timerResizeLista);
+  timerResizeLista=setTimeout(function(){
+    if(window.innerWidth===larguraJanelaAnterior)return;
+    larguraJanelaAnterior=window.innerWidth;
+    ajustarFonteLista(true);
+  },200);
+});
+ajustarFonteLista(false);
 document.querySelectorAll('a[href="#planos"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById('planos').scrollIntoView({behavior:'smooth'})}));
 (function(){
   function anexarParametrosCheckout(){
@@ -666,8 +694,15 @@ document.querySelectorAll('a[href="#planos"]').forEach(a=>a.addEventListener('cl
   window.addEventListener('scroll',function(){
     var y=window.scrollY;
     if(document.querySelector('.menu-lateral.on')) return;
-    if(y>ultimo && y>80){ topo.classList.add('escondida'); }
-    else { topo.classList.remove('escondida'); }
+    if(y<=10){
+      topo.classList.remove('escondida');
+      ultimo=y;
+      return;
+    }
+    var diff=y-ultimo;
+    if(Math.abs(diff)<15) return;
+    if(diff>0 && y>80){ topo.classList.add('escondida'); }
+    else if(diff<0){ topo.classList.remove('escondida'); }
     ultimo=y;
   },{passive:true});
 })();
